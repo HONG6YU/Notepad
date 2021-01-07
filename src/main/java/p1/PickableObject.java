@@ -13,6 +13,6 @@ public class PickableObject implements GameObject{
     }
     @Override
     public String toString() {
-        return super.toString() + "\n======\nID: " + ID + "\nlevel: " + level + "pickable: " + pickable;
+        return "\n======\nID: " + ID + "\nlevel: " + level + "pickable: " + pickable;
     }
 }
