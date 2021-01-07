@@ -1,10 +1,7 @@
 package p1;
 
-import javax.swing.*;
-
-import jdk.internal.org.objectweb.asm.ClassVisitor;
-import jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder;
-import jdk.internal.platform.Container;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 /**
  * Frame
@@ -15,7 +12,7 @@ public class Frame extends JFrame{
         setTitle("My First App");
         setSize(1000,1000);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JLabel jl = new JLable("test window");
+        JLabel jl = new JLabel("asdf");
         java.awt.Container c = getContentPane();
         c.add(jl);
         setVisible(true);
