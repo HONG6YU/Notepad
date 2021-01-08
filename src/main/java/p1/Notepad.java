@@ -20,8 +20,10 @@ public class Notepad {
     Notepad() {
         frame = new Frame(500, 500, fileName + "-" + applicationName);
         statusBar = new JLabel("||   Ln 1, Col 1", JLabel.RIGHT);
-        textArea = new SimpleTextArea();
+        textArea = new SimpleTextArea(20,50);
+        frame.add(statusBar);
         frame.add(new JScrollPane(textArea));
+
         frame.pack();
         frame.setLocation(100, 50);
         frame.setVisible(true);
