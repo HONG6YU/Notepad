@@ -32,6 +32,6 @@ public class Frame extends JFrame {
         setTitle(titleString);
         setSize(width,height);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        
     }
 }

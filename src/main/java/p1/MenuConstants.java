@@ -7,7 +7,6 @@ final String editText="Edit";
 final String formatText="Format";  
 final String viewText="View";  
 final String helpText="Help";  
-  
 final String fileNew="New";  
 final String fileOpen="Open...";  
 final String fileSave="Save";  
