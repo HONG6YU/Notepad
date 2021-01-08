@@ -3,7 +3,6 @@ package p1;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 public class Notepad {
     /**

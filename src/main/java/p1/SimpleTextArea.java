@@ -6,7 +6,6 @@ import java.awt.event.*;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 public class SimpleTextArea extends JPanel implements ActionListener {
 
@@ -16,7 +15,6 @@ public class SimpleTextArea extends JPanel implements ActionListener {
     private static final long serialVersionUID = 1L;
 
     protected JTextArea textArea;
-    private final static String newLine = "\n";
 
     public SimpleTextArea(int rows, int columns) {
         super(new GridBagLayout());
