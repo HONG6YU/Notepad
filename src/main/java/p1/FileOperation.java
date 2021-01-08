@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.logging.FileHandler;
 
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -16,6 +17,7 @@ public class FileOperation {
     private boolean newFileFlag;
     private boolean isSaved;
     private JFileChooser jFileChooser;
+    private FileHandler fileHandler;
 
     FileOperation(Notepad npd) {
         this.npd = npd;
