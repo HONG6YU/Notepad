@@ -1,6 +1,5 @@
 package p1;
 
-
 import java.awt.BorderLayout;
 
 import javax.swing.JLabel;
@@ -13,8 +12,10 @@ public class Notepad {
     Frame frame;
     SimpleTextArea notepadTextArea;
     JLabel statusBar;
+    MenuBar menuBar;
+
     private String fileName = "Untitled";
-    public String applicationName = "Notepad";
+    public static String applicationName = "Notepad";
     private boolean saved = true;
     FileOperation fileOperator;
     int ln;
@@ -22,11 +23,19 @@ public class Notepad {
 
     Notepad() {
         frame = new Frame(500, 500, fileName + "-" + applicationName);
-        notepadTextArea = new SimpleTextArea(20,50);
-        ln = notepadTextArea.textArea.getLineCount();
+        //text area
+        notepadTextArea = new SimpleTextArea(20, 50);
+
+        //status bar
         statusBar = new JLabel("||  " + applicationName, JLabel.RIGHT);
-        frame.add(statusBar,BorderLayout.SOUTH);
-        frame.add(new JScrollPane(notepadTextArea),BorderLayout.CENTER);
+        frame.add(statusBar, BorderLayout.SOUTH);
+        frame.add(new JScrollPane(notepadTextArea), BorderLayout.CENTER);
+
+        //menuBar
+        menuBar = new MenuBar();
+        frame.setJMenuBar(menuBar);
+        
+        //pack
         frame.pack();
         frame.setLocation(500, 100);
         frame.setVisible(true);

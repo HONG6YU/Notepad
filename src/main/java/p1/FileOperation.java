@@ -93,7 +93,7 @@ public class FileOperation {
             this.isSaved = true;
             fileName = temp.getName();
             fileRef = temp;
-            npd.frame.setTitle(fileName + "-" + npd.applicationName);
+            npd.frame.setTitle(fileName + "-" + Notepad.applicationName);
             npd.statusBar.setText("File: " + temp.getPath() + " | saved/opened successfully");
         } else {
             npd.statusBar.setText("File: " + temp.getPath() + " | failed to save/open");
