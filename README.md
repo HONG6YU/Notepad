@@ -1,2 +1,2 @@
-# testApp
-# test branches, hope everything ok
+# Notepad
+## This application is a simple notepad with coded lock to protect your privacy
