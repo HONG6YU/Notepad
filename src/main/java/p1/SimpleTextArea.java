@@ -14,7 +14,7 @@ public class SimpleTextArea extends JPanel implements ActionListener {
      */
     private static final long serialVersionUID = 1L;
 
-    protected JTextArea textArea;
+    public JTextArea textArea;
 
     public SimpleTextArea(int rows, int columns) {
         super(new GridBagLayout());
