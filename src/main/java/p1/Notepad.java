@@ -9,7 +9,7 @@ public class Notepad {
      *
      */
     Frame frame;
-    SimpleTextArea textArea;
+    SimpleTextArea notepadTextArea;
     JLabel statusBar;
     private String fileName = "Untitled";
     public String applicationName = "Notepad";
@@ -19,9 +19,9 @@ public class Notepad {
     Notepad() {
         frame = new Frame(500, 500, fileName + "-" + applicationName);
         statusBar = new JLabel("||   Ln 1, Col 1", JLabel.RIGHT);
-        textArea = new SimpleTextArea(20,50);
+        notepadTextArea = new SimpleTextArea(20,50);
         frame.add(statusBar);
-        frame.add(new JScrollPane(textArea));
+        frame.add(new JScrollPane(notepadTextArea));
 
         frame.pack();
         frame.setLocation(100, 50);
