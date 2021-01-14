@@ -38,7 +38,7 @@ public class Notepad implements ActionListener{
         frame.setJMenuBar(menuBar);
         
         
-        fileHandler = new FileOperation(this);
+        
 
         
 
@@ -53,8 +53,8 @@ public class Notepad implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String cmdString = e.getActionCommand();
-        if (cmdString.equals("Save")) {
-            
+        if (cmdString.equals("Save as")) {
+            fileHandler.saveAsFile();
         }
 
     }

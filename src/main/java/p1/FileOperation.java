@@ -17,7 +17,6 @@ public class FileOperation {
     private boolean newFileFlag;
     private boolean isSaved;
     private JFileChooser jFileChooser;
-    private FileHandler fileHandler;
 
     FileOperation(Notepad npd) {
         this.npd = npd;
