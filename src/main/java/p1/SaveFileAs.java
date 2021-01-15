@@ -11,10 +11,9 @@ public class SaveFileAs extends AbstractAction {
      *
      */
     private static final long serialVersionUID = 1L;
-    String fileName;
-    File fileRef;
-    Notepad notepad;
-    JTextArea simpleTextArea;
+    private String fileName;
+    private File fileRef;
+    private Notepad notepad;
     JFileChooser chooser;
     FileWriter fileWriter;
 
@@ -35,11 +34,15 @@ public class SaveFileAs extends AbstractAction {
         try {
             fileWriter = new FileWriter(fileRef);
             fileWriter.write(notepad.notepadTextArea.getText());
+            notepad.saved = true;
+            this.fileName = fileRef.getName();
+            notepad.fileName = fileName;
+            notepad.fileRef = fileRef;
         } catch (IOException ioe) {
             
         }
         finally{
-            this.fileName = fileRef.getName();
+            
             try {
                 fileWriter.close();
             } catch (IOException ioe) {
@@ -51,5 +54,8 @@ public class SaveFileAs extends AbstractAction {
     }
     public String getFileName() {
         return this.fileName;
+    }
+    public File getFile() {
+        return this.fileRef;
     }
 }

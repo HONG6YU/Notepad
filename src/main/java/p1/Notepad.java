@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 public class Notepad implements ActionListener{
     /**
@@ -14,10 +15,10 @@ public class Notepad implements ActionListener{
     public JTextArea notepadTextArea;
     public JLabel statusBar;
     private MenuBar menuBar;
-
+    public File fileRef;
     public String fileName = "Untitled";
     public static String applicationName = "Notepad";
-    private boolean saved = true;
+    public boolean saved = false;
     public int ln;
     public int col;
 
@@ -44,6 +45,6 @@ public class Notepad implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        
     }
 }

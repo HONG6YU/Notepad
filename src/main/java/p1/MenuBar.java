@@ -41,10 +41,15 @@ public class MenuBar extends JMenuBar implements ActionListener {
         menuFile = new JMenu("File");
         menuFile.setMnemonic(KeyEvent.VK_F);
         menuFile.getAccessibleContext().setAccessibleDescription("File operations");
+        //save
         menuItemSave = new JMenuItem("Save");
+        menuItemSave.setAction(new SaveFile(notepad));
+        menuItemSave.setText("Save");
         menuFile.add(menuItemSave);
+        //save as
         menuItemSaveAs = new JMenuItem("Save as");
         menuItemSaveAs.setAction(new SaveFileAs(notepad));
+        menuItemSaveAs.setText("Save as");
         menuFile.add(menuItemSaveAs);
     }
 
