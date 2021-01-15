@@ -10,16 +10,16 @@ public class Notepad implements ActionListener{
     /**
      *
      */
-    Frame frame;
-    JTextArea notepadTextArea;
-    JLabel statusBar;
-    MenuBar menuBar;
+    public Frame frame;
+    public JTextArea notepadTextArea;
+    public JLabel statusBar;
+    private MenuBar menuBar;
 
-    private String fileName = "Untitled";
+    public String fileName = "Untitled";
     public static String applicationName = "Notepad";
     private boolean saved = true;
-    int ln;
-    int col;
+    public int ln;
+    public int col;
 
     public Notepad() {
         frame = new Frame(500, 500, fileName + "-" + applicationName);
