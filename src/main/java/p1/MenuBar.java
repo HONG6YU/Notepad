@@ -1,11 +1,13 @@
 package p1;
+
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-public class MenuBar extends JMenuBar implements ActionListener{
+
+public class MenuBar extends JMenuBar implements ActionListener {
 
     /**
      *
@@ -14,36 +16,48 @@ public class MenuBar extends JMenuBar implements ActionListener{
     JMenu menuFile;
     JMenu menuEdit;
     JMenu menuHelp;
-    JMenu submenuFile;
     JMenuItem menuItemSave;
     JMenuItem menuItemSaveAs;
+    Notepad notepad;
 
-    public MenuBar(){
+    public MenuBar(Notepad notepad) {
+        this.notepad = notepad;
+
         //menu File
+        setMenuFile();
+        //menu Edit
+        setMenuEdit();
+        //menu Help
+        setMenuHelp();
+
+
+        this.add(menuFile);
+        this.add(menuEdit);
+        this.add(menuHelp);
+
+    }
+
+    public void setMenuFile() {
         menuFile = new JMenu("File");
         menuFile.setMnemonic(KeyEvent.VK_F);
         menuFile.getAccessibleContext().setAccessibleDescription("File operations");
         menuItemSave = new JMenuItem("Save");
         menuFile.add(menuItemSave);
         menuItemSaveAs = new JMenuItem("Save as");
+        menuItemSaveAs.setAction(new SaveFileAs(notepad));
         menuFile.add(menuItemSaveAs);
-        //menu Edit
+    }
+
+    public void setMenuEdit() {
         menuEdit = new JMenu("Edit");
         menuEdit.setMnemonic(KeyEvent.VK_E);
         menuEdit.getAccessibleContext().setAccessibleDescription("Edit operations");
+    }
 
-        //menu Help
+    public void setMenuHelp() {
         menuHelp = new JMenu("Help");
         menuHelp.setMnemonic(KeyEvent.VK_H);
         menuHelp.getAccessibleContext().setAccessibleDescription("Help with " + Notepad.applicationName);
-        
-        
-        
-        
-        this.add(menuFile);
-        this.add(menuEdit);
-        this.add(menuHelp);
-
     }
 
 
@@ -52,5 +66,5 @@ public class MenuBar extends JMenuBar implements ActionListener{
         // TODO Auto-generated method stub
 
     }
-    
+
 }
