@@ -14,6 +14,7 @@ public class Notepad implements ActionListener{
     public Frame frame;
     public JTextArea notepadTextArea;
     public JLabel statusBar;
+    public JLabel addressBar;
     private MenuBar menuBar;
     public File fileRef;
     public String fileName = "Untitled";
@@ -26,10 +27,12 @@ public class Notepad implements ActionListener{
         frame = new Frame(500, 500, fileName + "-" + applicationName);
         //text area
         notepadTextArea = new JTextArea(20, 50);
+        fileRef = new File(fileName);
 
         //status bar
-        statusBar = new JLabel("||  " + applicationName, JLabel.RIGHT);
+        statusBar = new JLabel(this.fileName + " - " + this.fileRef.toPath() + "||  " + applicationName, JLabel.RIGHT);
         frame.add(statusBar, BorderLayout.SOUTH);
+
         frame.add(new JScrollPane(notepadTextArea), BorderLayout.CENTER);
 
         //menuBar
