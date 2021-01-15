@@ -18,8 +18,11 @@ public class MenuBar extends JMenuBar implements ActionListener {
     JMenu menuHelp;
     JMenuItem menuItemSave;
     JMenuItem menuItemSaveAs;
+    Notepad notepad;
 
-    public MenuBar() {
+    public MenuBar(Notepad notepad) {
+        this.notepad = notepad;
+
         //menu File
         setMenuFile();
         //menu Edit
@@ -41,6 +44,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
         menuItemSave = new JMenuItem("Save");
         menuFile.add(menuItemSave);
         menuItemSaveAs = new JMenuItem("Save as");
+        menuItemSaveAs.setAction(new SaveFileAs(notepad));
         menuFile.add(menuItemSaveAs);
     }
 

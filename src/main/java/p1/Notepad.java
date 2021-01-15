@@ -32,7 +32,7 @@ public class Notepad implements ActionListener{
         frame.add(new JScrollPane(notepadTextArea), BorderLayout.CENTER);
 
         //menuBar
-        menuBar = new MenuBar();
+        menuBar = new MenuBar(this);
         frame.setJMenuBar(menuBar);
 
         //pack
