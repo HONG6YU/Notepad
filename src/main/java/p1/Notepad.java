@@ -2,8 +2,7 @@ package p1;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -12,21 +11,20 @@ public class Notepad implements ActionListener{
      *
      */
     Frame frame;
-    SimpleTextArea notepadTextArea;
+    JTextArea notepadTextArea;
     JLabel statusBar;
     MenuBar menuBar;
 
     private String fileName = "Untitled";
     public static String applicationName = "Notepad";
     private boolean saved = true;
-    FileOperation fileHandler;
     int ln;
     int col;
 
-    Notepad() {
+    public Notepad() {
         frame = new Frame(500, 500, fileName + "-" + applicationName);
         //text area
-        notepadTextArea = new SimpleTextArea(20, 50);
+        notepadTextArea = new JTextArea(20, 50);
 
         //status bar
         statusBar = new JLabel("||  " + applicationName, JLabel.RIGHT);
@@ -36,12 +34,6 @@ public class Notepad implements ActionListener{
         //menuBar
         menuBar = new MenuBar();
         frame.setJMenuBar(menuBar);
-        
-        
-        
-
-        
-
 
         //pack
         frame.pack();
@@ -52,10 +44,6 @@ public class Notepad implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String cmdString = e.getActionCommand();
-        if (cmdString.equals("Save as")) {
-            fileHandler.saveAsFile();
-        }
 
     }
 }
