@@ -22,7 +22,6 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Path;
 
 /**
  * This class allows users to save files as a new file or an existing file
@@ -31,7 +30,6 @@ public class SaveFileAs extends AbstractAction {
     private static final long serialVersionUID = 1L;
     private String fileName;
     private File fileRef;
-    private Path filePath;
     private Notepad notepad;
     JFileChooser chooser;
     FileWriter fileWriter;
@@ -44,7 +42,6 @@ public class SaveFileAs extends AbstractAction {
     SaveFileAs(Notepad npd) {
         fileName = "untitled";
         fileRef = new File(fileName);
-        filePath = fileRef.toPath();
         chooser = new JFileChooser();
         chooser.setApproveButtonText("Save file as");
         chooser.setCurrentDirectory(new File("."));
@@ -57,22 +54,21 @@ public class SaveFileAs extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         // use a file chooser to choose or create a file
-        chooser.showSaveDialog(notepad.frame);
+        chooser.showSaveDialog(notepad.getFrame());
         fileRef = chooser.getSelectedFile();
         try {
             fileWriter = new FileWriter(fileRef);
-            fileWriter.write(notepad.notepadTextArea.getText());
+            fileWriter.write(notepad.getJTextArea().getText());
             // update status
-            notepad.saved = true;
+            notepad.setSaved(true);
             this.fileName = fileRef.getName();
-            this.filePath = fileRef.toPath();
             // if write unsuccessfully
         } catch (IOException ioe) {
-            notepad.saved = false;
+            notepad.setSaved(false);
         } finally {
             try {
                 // update status
-                notepad.setFile(this.fileName, this.filePath, this.fileRef);
+                notepad.setFile(this.fileName, this.fileRef);
                 fileWriter.close();
             } catch (IOException ioe) {
 

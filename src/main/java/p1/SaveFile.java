@@ -30,7 +30,8 @@ public class SaveFile extends AbstractAction {
     private static final long serialVersionUID = 1L;
     private File fileRef;
     private Notepad notepad;
-    FileWriter fileWriter;
+    private FileWriter fileWriter;
+    private boolean saved;
 
     /**
      * constructor for this class
@@ -38,7 +39,8 @@ public class SaveFile extends AbstractAction {
      */
     SaveFile(Notepad notepad) {
         this.notepad = notepad;
-        this.fileRef = notepad.fileRef;
+        this.fileRef = notepad.getFileRef();
+        this.saved = notepad.getSaved();
     }
 
     /**
@@ -47,18 +49,18 @@ public class SaveFile extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         //update the fileRef
-        this.fileRef = notepad.fileRef;
+        this.fileRef = notepad.getFileRef();
         //If this is a new file and have not been saved before, save this file as
-        if (!notepad.saved) {
+        if (!saved) {
             return;
         }
         //write context on the text area into the file
         try {
             fileWriter = new FileWriter(fileRef);
-            fileWriter.write(notepad.notepadTextArea.getText());
-            notepad.saved = true;
+            fileWriter.write(notepad.getJTextArea().getText());
+            notepad.setSaved(true);
         } catch (IOException ioe) {
-            notepad.saved = false;
+            notepad.setSaved(false);
         }
         //close the file writer
         finally{
@@ -68,7 +70,5 @@ public class SaveFile extends AbstractAction {
                 
             }
         }
-        
-
     }
 }
