@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 /**
- * 
+ * This class allows users to save files as a new file or an existing file
  */
 public class SaveFileAs extends AbstractAction {
     private static final long serialVersionUID = 1L;

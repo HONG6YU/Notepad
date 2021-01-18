@@ -22,11 +22,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.AbstractAction;
-
+/**
+ * This class allows users to save files that they had been saved before
+ */
 public class SaveFile extends AbstractAction {
-    /**
-     * serial version ID for this class
-     */
+
     private static final long serialVersionUID = 1L;
     private File fileRef;
     private Notepad notepad;
