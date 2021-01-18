@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.nio.file.Path;
 
 public class Notepad implements ActionListener{
     /**
@@ -18,6 +19,7 @@ public class Notepad implements ActionListener{
     private MenuBar menuBar;
     public File fileRef;
     public String fileName = "Untitled";
+    public Path filePath;
     public static String applicationName = "Notepad";
     public boolean saved = false;
     public int ln;
@@ -28,9 +30,10 @@ public class Notepad implements ActionListener{
         //text area
         notepadTextArea = new JTextArea(20, 50);
         fileRef = new File(fileName);
+        filePath = fileRef.toPath();
 
         //status bar
-        statusBar = new JLabel(this.fileName + " - " + this.fileRef.toPath() + "||  " + applicationName, JLabel.RIGHT);
+        statusBar = new JLabel(this.fileName + " - " + filePath.toString() + "||  " + applicationName, JLabel.RIGHT);
         frame.add(statusBar, BorderLayout.SOUTH);
 
         frame.add(new JScrollPane(notepadTextArea), BorderLayout.CENTER);
@@ -49,5 +52,11 @@ public class Notepad implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
+    }
+
+    public void setFile(String fileName, Path filePath, File fileRef) {
+        this.fileName = fileName;
+        this.filePath = filePath;
+        this.fileRef = fileRef;
     }
 }
