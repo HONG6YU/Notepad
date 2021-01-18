@@ -50,7 +50,6 @@ public class SaveFile extends AbstractAction {
         this.fileRef = notepad.fileRef;
         //If this is a new file and have not been saved before, save this file as
         if (!notepad.saved) {
-            SaveFileAs sfa = new SaveFileAs(notepad);
             return;
         }
         //write context on the text area into the file
